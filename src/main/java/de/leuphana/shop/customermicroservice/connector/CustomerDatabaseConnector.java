@@ -11,7 +11,13 @@ import de.leuphana.shop.customermicroservice.connector.entity.CustomerEntity;
 import de.leuphana.shop.customermicroservice.connector.mapper.CustomerMapper;
 
 public class CustomerDatabaseConnector {
+    private static CustomerDatabaseConnector customerDatabaseConnector;
     private EntityManager entityManager;
+
+    public static CustomerDatabaseConnector getInstance() {
+        if(customerDatabaseConnector == null) customerDatabaseConnector = new CustomerDatabaseConnector();
+        return customerDatabaseConnector;
+    }
 
     @PersistenceContext(type = PersistenceContextType.TRANSACTION)
     public void setEntityManager(EntityManager entityManager) {
