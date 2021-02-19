@@ -1,5 +1,7 @@
 package de.leuphana.shop.customermicroservice.connector;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,8 +18,14 @@ public class CustomerRestController {
     @PostMapping("/customers")
     @ResponseBody
     public Customer createCustomer(@RequestBody Customer customer) {
-        CustomerService customerService = new CustomerServiceImplementation();
+        CustomerService customerService = CustomerServiceImplementation.getInstance();
         PostAddress postAddress = customer.getPostAddress();
         return customerService.createCustomer(customer.getFirstname(), customer.getLastname(), postAddress.getStreet(), postAddress.getHousenumber(), postAddress.getZipcode(), postAddress.getCity());
+    }
+
+    @GetMapping("/customers/{id}")
+    @ResponseBody
+    public Customer getCustomer(@PathVariable("id") Integer id) {
+        return CustomerServiceImplementation.getInstance().getCustomer(id);
     }
 }

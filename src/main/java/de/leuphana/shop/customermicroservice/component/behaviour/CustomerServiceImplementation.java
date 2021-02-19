@@ -7,10 +7,15 @@ import de.leuphana.shop.customermicroservice.connector.CustomerDatabaseConnector
 public class CustomerServiceImplementation implements CustomerService {
 
     private static CustomerServiceImplementation customerServiceImplementation;
+    private CustomerDatabaseConnector customerDatabaseConnector;
 
     public static CustomerServiceImplementation getInstance() {
         if(customerServiceImplementation == null) customerServiceImplementation = new CustomerServiceImplementation();
         return customerServiceImplementation;
+    }
+
+    public void setCustomerDatabaseConnector(CustomerDatabaseConnector customerDatabaseConnector) {
+        this.customerDatabaseConnector = customerDatabaseConnector;
     }
 
     @Override
@@ -27,8 +32,13 @@ public class CustomerServiceImplementation implements CustomerService {
 
         customer.setPostAddress(postAddress);
 
-        customer.setId(CustomerDatabaseConnector.getInstance().createCustomer(customer));
+        customer.setId(customerDatabaseConnector.createCustomer(customer));
 
         return customer;
+    }
+
+    @Override
+    public Customer getCustomer(Integer id) {
+        return customerDatabaseConnector.getCustomer(id);
     }
 }
