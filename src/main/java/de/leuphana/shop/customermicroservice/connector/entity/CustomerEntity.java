@@ -1,20 +1,28 @@
-package de.leuphana.shop.customermicroservice.component.structure;
+package de.leuphana.shop.customermicroservice.connector.entity;
 
-public class CustomerImplementation implements Customer {
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "Customer")
+public class CustomerEntity {
+    @Id @GeneratedValue
     private Integer id;
     private String firstname;
     private String lastname;
-    private PostAddress postAddress;
+    @Embedded
+    private PostAddressEntity postAddress;
 
     public Integer getId() {
         return id;
     }
 
-    public PostAddress getPostAddress() {
+    public PostAddressEntity getPostAddress() {
         return postAddress;
     }
 
-    public void setPostAddress(PostAddress postAddress) {
+    public void setPostAddress(PostAddressEntity postAddress) {
         this.postAddress = postAddress;
     }
 

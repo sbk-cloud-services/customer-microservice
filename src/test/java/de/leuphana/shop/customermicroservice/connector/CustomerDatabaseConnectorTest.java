@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import de.leuphana.shop.customermicroservice.component.structure.Customer;
-import de.leuphana.shop.customermicroservice.component.structure.CustomerImplementation;
+import de.leuphana.shop.customermicroservice.component.structure.PostAddress;
 
 public class CustomerDatabaseConnectorTest {
     private static ApplicationContext applicationContext;
@@ -17,9 +17,17 @@ public class CustomerDatabaseConnectorTest {
     public static void setupBeforeClass() {
         applicationContext = new ClassPathXmlApplicationContext("applicationcontext-jpa-connector.xml");
         
-        customer = new CustomerImplementation();
-        customer.setFirstname("Test");
-        customer.setLastname("123");
+        customer = new Customer();
+        customer.setFirstname("Billy");
+        customer.setLastname("Bob");
+
+        PostAddress postAddress = new PostAddress();
+        postAddress.setStreet("Baumweg");
+        postAddress.setHousenumber("2a");
+        postAddress.setZipcode("666");
+        postAddress.setCity("Nussloch");
+
+        customer.setPostAddress(postAddress);
 
         customerDatabaseConnector = (CustomerDatabaseConnector) applicationContext.getBean("customerDatabaseConnector");
     }

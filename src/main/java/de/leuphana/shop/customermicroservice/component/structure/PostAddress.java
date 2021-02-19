@@ -1,19 +1,40 @@
 package de.leuphana.shop.customermicroservice.component.structure;
 
-public interface PostAddress {
-    public String getStreet();
+public class PostAddress {
+    private String street;
+    private String housenumber;
+    private String zipcode;
+    private String city;
 
-    public void setStreet(String street);
+    public String getStreet() {
+        return street;
+    }
 
-    public String getHousenumber();
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-    public void setHousenumber(String housenumber);
+    public String getHousenumber() {
+        return housenumber;
+    }
 
-    public String getZipcode();
+    public void setHousenumber(String housenumber) {
+        this.housenumber = housenumber;
+    }
 
-    public void setZipcode(String zipcode);
+    public String getZipcode() {
+        return zipcode;
+    }
 
-    public String getCity();
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
 
-    public void setCity(String city);
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

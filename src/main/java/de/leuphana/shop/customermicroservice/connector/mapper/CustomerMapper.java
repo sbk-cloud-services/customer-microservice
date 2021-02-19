@@ -3,8 +3,8 @@ package de.leuphana.shop.customermicroservice.connector.mapper;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 
-import de.leuphana.shop.customermicroservice.component.structure.CustomerImplementation;
-import de.leuphana.shop.customermicroservice.connector.entity.CustomerEntityImplementation;
+import de.leuphana.shop.customermicroservice.component.structure.Customer;
+import de.leuphana.shop.customermicroservice.connector.entity.CustomerEntity;
 
 
 public class CustomerMapper {
@@ -14,11 +14,11 @@ public class CustomerMapper {
         mapper = DozerBeanMapperSingletonWrapper.getInstance();
     }
 
-    public static CustomerEntityImplementation mapCustomerToCustomerEntity(CustomerImplementation customerImplementation) {
-        return mapper.map(customerImplementation, CustomerEntityImplementation.class);
+    public static CustomerEntity mapCustomerToCustomerEntity(Customer customer) {
+        return mapper.map(customer, CustomerEntity.class);
     }
 
-    public static CustomerImplementation mapCustomerToCustomerEntity(CustomerEntityImplementation customerEntityImplementation) {
-        return mapper.map(customerEntityImplementation, CustomerImplementation.class);
+    public static Customer mapCustomerToCustomerEntity(CustomerEntity customerEntity) {
+        return mapper.map(customerEntity, Customer.class);
     }
 }

@@ -1,6 +1,9 @@
-package de.leuphana.shop.customermicroservice.component.structure;
+package de.leuphana.shop.customermicroservice.connector.entity;
 
-public class PostAddressImplementation implements PostAddress {
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class PostAddressEntity {
     private String street;
     private String housenumber;
     private String zipcode;

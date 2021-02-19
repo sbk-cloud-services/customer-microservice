@@ -1,19 +1,40 @@
 package de.leuphana.shop.customermicroservice.component.structure;
 
-public interface Customer {
-    public Integer getId();
+public class Customer {
+    private Integer id;
+    private String firstname;
+    private String lastname;
+    private PostAddress postAddress;
 
-    public PostAddress getPostAddress();
+    public Integer getId() {
+        return id;
+    }
 
-    public void setPostAddress(PostAddress postAddress);
+    public PostAddress getPostAddress() {
+        return postAddress;
+    }
 
-    public String getLastname();
+    public void setPostAddress(PostAddress postAddress) {
+        this.postAddress = postAddress;
+    }
 
-    public void setLastname(String lastname);
+    public String getLastname() {
+        return lastname;
+    }
 
-    public String getFirstname();
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public void setFirstname(String firstname);
+    public String getFirstname() {
+        return firstname;
+    }
 
-    public void setId(Integer id);
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

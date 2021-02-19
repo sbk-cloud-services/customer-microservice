@@ -7,8 +7,7 @@ import javax.persistence.PersistenceContextType;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.leuphana.shop.customermicroservice.component.structure.Customer;
-import de.leuphana.shop.customermicroservice.component.structure.CustomerImplementation;
-import de.leuphana.shop.customermicroservice.connector.entity.CustomerEntityImplementation;
+import de.leuphana.shop.customermicroservice.connector.entity.CustomerEntity;
 import de.leuphana.shop.customermicroservice.connector.mapper.CustomerMapper;
 
 public class CustomerDatabaseConnector {
@@ -21,8 +20,8 @@ public class CustomerDatabaseConnector {
 
     @Transactional
     public Integer createCustomer(Customer customer) {
-        CustomerEntityImplementation customerEntityImplementation = CustomerMapper.mapCustomerToCustomerEntity((CustomerImplementation) customer);
-        entityManager.persist(customerEntityImplementation);
-        return customerEntityImplementation.getId();
+        CustomerEntity customerEntity = CustomerMapper.mapCustomerToCustomerEntity(customer);
+        entityManager.persist(customerEntity);
+        return customerEntity.getId();
     }
 }
