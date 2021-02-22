@@ -6,10 +6,10 @@ import de.leuphana.shop.customermicroservice.connector.CustomerDatabaseConnector
 
 public class CustomerServiceImplementation implements CustomerService {
 
-    private static CustomerServiceImplementation customerServiceImplementation;
+    private static CustomerService customerServiceImplementation;
     private CustomerDatabaseConnector customerDatabaseConnector;
 
-    public static CustomerServiceImplementation getInstance() {
+    public static CustomerService getInstance() {
         if(customerServiceImplementation == null) customerServiceImplementation = new CustomerServiceImplementation();
         return customerServiceImplementation;
     }
