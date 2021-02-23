@@ -24,4 +24,10 @@ public class CustomerDatabaseConnector {
         entityManager.persist(customerEntity);
         return customerEntity.getId();
     }
+
+    @Transactional
+    public Customer getCustomer(Integer id) {
+        CustomerEntity customerEntity = entityManager.getReference(CustomerEntity.class, id);
+        return CustomerMapper.mapCustomerEntityToCustomer(customerEntity);
+    }
 }
