@@ -1,5 +1,12 @@
 version: "3.0"
 services:
+  customer:
+    build: .
+    links:
+      - database
+    ports:
+      - "127.0.0.1:8080:8080"
+
   database:
     image: mariadb:latest
     environment:
@@ -7,11 +14,3 @@ services:
       MYSQL_DATABASE: customer
       MYSQL_USER: customer
       MYSQL_PASSWORD: 3ayYMPwCd2maT3yuPGS6dnY7XC4CRnvb
-    ports:
-      - "127.0.0.1:3306:3306"
-
-  adminer:
-    image: adminer:latest
-    restart: always
-    ports:
-      - 127.0.0.1:8000:8080
