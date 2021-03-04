@@ -1,6 +1,7 @@
 version: "3.0"
 services:
   customer:
+    image: ghcr.io/sbk-cloud-services/customer-microservice:latest
     build: .
     links:
       - database
@@ -8,6 +9,8 @@ services:
       - "127.0.0.1:8080:8080"
 
   database:
+    volumes:
+      - database:/var/lib/mysql
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: 3ayYMPwCd2maT3yuPGS6dnY7XC4CRnvb
@@ -16,3 +19,6 @@ services:
       MYSQL_PASSWORD: 3ayYMPwCd2maT3yuPGS6dnY7XC4CRnvb
     ports:
       - "127.0.0.1:3306:3306"
+
+volumes:
+  database:
