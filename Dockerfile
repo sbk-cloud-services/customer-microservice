@@ -5,8 +5,7 @@ COPY src/ /service/src
 
 WORKDIR /service/
 
-RUN mvn install
-
+RUN mvn package
 EXPOSE 8080
 
-ENTRYPOINT ["mvn", "spring-boot:run"]
+ENTRYPOINT [ "java", "-jar", "target/customermicroservice-1.0-SNAPSHOT.jar" ]
