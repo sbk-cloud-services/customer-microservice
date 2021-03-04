@@ -101,6 +101,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.4.0</version>
         </dependency>
+
+        <!-- Service discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes</artifactId>
+            <version>1.1.8.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
