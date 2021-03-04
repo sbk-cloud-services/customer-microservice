@@ -1,5 +1,6 @@
 package de.leuphana.shop.customermicroservice.connector;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +16,7 @@ public class CustomerDatabaseConnectorTest {
 
     @BeforeAll
     public static void setupBeforeClass() {
-        applicationContext = new ClassPathXmlApplicationContext("applicationcontext-jpa-connector.xml");
+        applicationContext = new ClassPathXmlApplicationContext("applicationcontext.xml");
         
         customer = new Customer();
         customer.setFirstname("Billy");
@@ -35,5 +36,10 @@ public class CustomerDatabaseConnectorTest {
     @Test
     public void canCustomerBeCreated() {
         customerDatabaseConnector.createCustomer(customer);
+    }
+
+    @Test
+    public void canCustomerBeFetched() {
+        Assertions.assertNotNull(customerDatabaseConnector.getCustomer(1));
     }
 }
