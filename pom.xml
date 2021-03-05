@@ -142,7 +142,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>de.leuphana.shop.customermicroservice</mainClass>
+                                    <mainClass>de.leuphana.shop.customermicroservice.connector.CustomerServiceApplication</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
