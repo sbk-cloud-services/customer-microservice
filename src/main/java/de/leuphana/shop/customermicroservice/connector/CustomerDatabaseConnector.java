@@ -27,7 +27,9 @@ public class CustomerDatabaseConnector {
 
     @Transactional
     public Customer getCustomer(Integer id) {
-        CustomerEntity customerEntity = entityManager.getReference(CustomerEntity.class, id);
-        return CustomerMapper.mapCustomerEntityToCustomer(customerEntity);
+        CustomerEntity customerEntity = entityManager.find(CustomerEntity.class, id);
+
+        if(customerEntity != null) return CustomerMapper.mapCustomerEntityToCustomer(customerEntity);
+        else return null;
     }
 }

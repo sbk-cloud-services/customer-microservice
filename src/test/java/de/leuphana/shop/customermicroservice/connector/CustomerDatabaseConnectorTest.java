@@ -40,6 +40,7 @@ public class CustomerDatabaseConnectorTest {
 
     @Test
     public void canCustomerBeFetched() {
+        Assertions.assertNull(customerDatabaseConnector.getCustomer(-1));
         Assertions.assertNotNull(customerDatabaseConnector.getCustomer(1));
     }
 }
